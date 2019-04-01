@@ -1,0 +1,57 @@
+Akka.net Ricky Terrell
+02/27/2019 - Enterprise Dev Guild
+----------------------------------
+@RIKCACE
+
+Near Real-Time Stream Analysis
+3 V's of data in motion:
+Volume
+Variety
+Velocity
+ - backpressure
+
+5 V'Stream
+Volume
+Variety
+Velocity
+Value
+Veracity
+
+
+reactive-streams.org
+
+ReactiveManifesto.org
+Respnsive
+Elastic
+Resilient
+Message Driven
+
+From Actor Model to Reactive Stream(s)
+    Actor   
+        - Mailbox
+        - Behavior
+        - State
+        - Supervisor Strategy
+        - Children
+
+
+Actor Offers:
+High Throughput
+Fault Tolerance
+No Manual Thread Mgmt
+Scale Out and Up
+High Availability
+Async
+
+ActionBlock - nuget
+
+
+Describe Data Flow at a Higher Level:
+-------------------------------------
+
+
+How to Buffer Data Without Running out of Memory:
+-------------------------------------------------
+
+
+github.com/rikace/streamsentimentanalysis

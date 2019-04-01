@@ -1,0 +1,146 @@
+Richard's Angular 2 Presentation at LA
+---------------------------------------
+
+Modules
+	app.module
+	speaker.module
+	conference.module
+
+speaker.routing
+
+@NgModule class for Module
+
+root module launches
+
+dynamic bootstrapping and AOT (ahead of time) compiled
+
+
+Bootstrapping
+------------
+systemjs
+
+import {AppModule} from './app.module';
+
+app.module.ts
+can bring in other modules
+App.Component
+PageNotFoujnd.component
+
+
+Component controls partial view or view
+Components are decorated with @Component
+
+using interfaces, highly recommended
+
+Component LifeCycle
+ngOnInit
+ngOnChanges
+ngDoCheck
+ngOnDestroy
+ngAfterConentInit
+
+Component=view and code that supports the view
+Is it self contained?
+Features are represented at Feature Components (a component)
+
+
+<router-outlet></router-outlet>
+
+Components have interfaces
+
+
+Service - talks to API
+
+templateUrl
+(click)="onSelect(speaker)" wiring up click events
+
+Templates can contain tags that represent other components
+<tr *ngFor="let speaker of speakers" (click)="onSelect(speaker)">
+	<td>
+</tr>
+
+
+MetaData - decorator to identify component or module
+@Component - can have directives and providers - array of dependency injections
+
+<a routerLinke="/speakerList"
+
+in speaker detail components
+
+@Component ({
+	templateUrl:'',
+	styleUrls:['*.css']
+})
+
+@NgModule ({
+	imports:[],
+	declarations:[Component, Component],
+	providers: [speakerService],
+
+})
+
+
+Data Binding  - template/component connections
+Interpolation - property value {{ currentSpeaker.Id }}
+Property Binding - one way from component to view element  property -> view element
+Event Binding - calls method of component - 1 way - event handler
+2 way data binding - data flow between the input and the model
+
+<element  [(ngModel)]="currentSpeaker.Name" />
+
+
+
+private loadSpeakers() : Observable<Speaker[]> {
+	return this.http.get(this.SpeakersUrl)
+		.map(this.extractData)
+		.catch(this.handleError)
+} //speakersUrl in this case is simply a JSON file
+
+
+Directive - class with directive metadata @Directive 
+*ngFor, *ngIf
+is show/hide available
+
+
+Service Logging , Data, Message Bud, Configuration
+no formal definition for a service
+
+@Injectable for the service - this class can be injected DI
+
+@Injectable
+export class SpeakerService {
+	constructor(private http: Http) {
+		this.loadSpeakers()
+		.subscribe()
+		.
+	}
+
+	private loadSpeakers(): Observable<Speaker[]> {
+
+	}
+
+}
+
+
+
+Other features and Services
+Animations
+Change Detection
+Events
+HTTP
+Testing
+Component Router
+Forms
+Pipes - <td>{{conference.StartDate | date }}</td>
+
+
+Routing is designed to be component based, routing 
+
+const route: Routes =[ 
+	{path: 'speakerList', component : SpeakerListComponent},
+	{path: 'speakerListDetail/:id', component: SpeakerListDetailComponent}
+];
+
+
++params['id'] //the + symbol simply converts it to a number
+

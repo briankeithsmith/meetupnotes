@@ -1,0 +1,41 @@
+Unit Testing Patterns in the Enterprise
+Payne Miller
+---------------------------------------
+
+Possible topics - nano services , micro-services
+
+xUnit Test Patterns for the Enterprise
+----------------------------------------
+
+Good analogy for unit testing is Unit Testing
+
+Intro Concepts:
+What is a unit and what is a dependency
+Unit - logical piece of functionality
+Dependency - something your code does not control
+     - api, internet, db, etc
+
+Test Case = 1 unit test
+
+Test Class - class composed of several test cases
+
+Test Suite  multiple test classes
+
+Naming Convention:
+testFunction_expectedResult()
+
+Doubling
+
+Dummy, Mocks, Fakes, Stubs
+
+Books:
+xUnit Test Patterns 
+Manning unit testing
+Pragmatic Unit Testing
+Clean code
+
+
+Feature Coverage vs Code Coverage
+
+Spy observes events within test
+

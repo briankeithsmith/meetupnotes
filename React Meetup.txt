@@ -1,0 +1,128 @@
+React Meetup
+
+Intro to Redux
+-------------------------------
+this.setState  is an action creator
+dispatches an action against the state
+
+state goes DOWN the component hierarchy
+it also passes state handlers down
+one-way data binding
+
+
+What does the component tree for your app look like?
+
+Without redux you need a common parent for state - or for portions of your state needed by other components
+
+
+3 Principles of Redux:
+1. Single store for state
+2. Don't mutate state
+3. dispatch actions to trigger state updates - pure reducers
+
+
+Provider from react-redux
+createStore from redux
+colorReducer from ./reducers/colorReducer
+
+const store = createStore(colorReducer);
+
+
+create Action Handlers
+example would be colorActions.js
+
+
+Reducers handle state
+example would be colorReducer.js
+
+const colorReducer = (state = initialState, action) => {
+	
+
+}
+
+
+import { connect } from 'react-redux';
+
+
+can connect "(using connect)" to any component along the way, up or down (I think?)
+
+Connected - Smart  - Container
+Disconnected - Dumb - Presentational
+
+
+Learn React First, then Redux
+
+
+
+
+Mark Pedrotti
+Uneject and Recreate-react-app
+---------------------------------------
+github.com/pedrottimark
+
+eject - means ejecting the default configuration
+
+Current Situation:
+Painful Problem
+Why it is a problem
+
+Desired situation:
+
+install create-react-app as global
+
+it installs the current version of react-scripts
+npm install react-test-renderer
+
+
+place tests in __tests__ file
+npm test will run those test items
+
+Allows an End to End test using Snapshot of rendered react component
+
+
+Commit tests and snapshots so that others can compare against them
+
+
+
+
+PMing in React
+product management in react
+
+PM between UX, Tech, Business
+
+Product Mgr is not a project mgr
+
+
+What do you wish your PM knew about React dev?
+good stuff takes time
+are timeframes realistic
+PM should be good at defense - saying no, blocking client
+need more budget
+
+different team dynamics
+
+
+github.com/ReactCLT
+
+
+
+idea
+research
+concept
+feedback
+
+then
+
+strategy
+wireframe
+
+then
+
+dev
+test
+repeat
+
+React.rocks
+
+Nick Breaton - Styling React Components at next meetup
+

@@ -1,0 +1,110 @@
+Vue With D3 - Animated Analytics
+--------------------------------
+Reactive Data Viz with D3 and VueJS
+
+Brian Greig
+
+github.com/ignoreintuition
+
+dev.to/ignoreintuition
+
+Medium ignoreintuition
+
+VUE:
+VueJS
+2 way binding
+Agnostic - optional Vuex/Router
+Components Mixins Custom Directives
+Unobstructive Reactivity System
+
+Can build components and Directives
+
+
+Reactivity System:
+Component Render Function -> render -> touch get/set - collect and notify using Watcher 
+Models are updated
+Getter/Setter
+Watcher Instance
+Async update
+
+D3
+Data Visualizations
+Bind Data to DOM
+W3C Selector API
+Web Standards Compliant
+Styles/Attributes/Properties are functions of the Data
+
+
+Data Visualizations:
+What makes a good Data Visualization
+    - informative
+    - accessible
+    - simplify
+    - compare
+    - attend
+    - explore
+    - view diversely
+    - ask why
+    - be skeptical
+    - respond
+
+Stephen Few - Tableau
+
+Tools:
+NPM
+Vue CLI + webpack
+D3 - only selection, scale, axis
+Bootstrap
+Vue DevTools - for debugging purposes
+
+Getting Started
+Vue CLI
+Install dependent modules
+
+vue init webpack {projname}
+
+Unpacking the Plugin
+PropertiesData
+Method
+Lifecycle Events
+
+Props
+    - Dynamic
+    - Passed from template -> components
+
+<v-chart v-bind: chartData="chartData"></v-chart>
+
+Vue.component('v-chart', {
+    props:[],
+
+})
+
+Lifecycle Events
+mounted: function()
+{
+        this.initializeChart();
+}
+
+;
+Watchers:
+    -   react to  data changes
+    - perform expensive operations only when data changes
+
+watch: {
+    'chartData': {
+
+    }
+}
+
+
+template:
+DOM elements to be inserted
+template:
+
+
+Vue Dev Tools are in the browser
+
+I posted the presentation for what I will be covering next week: https://www.slideshare.net/BrianGreig6/reactive-data-with-d3-vuejs
+
+You can also preview the project on GitHub: https://github.com/ignoreintuition/v-chart-plugin
+

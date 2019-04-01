@@ -1,0 +1,38 @@
+Angular Goodness 12/12
+Doug Corbett
+=====================================
+
+Balsamiq for mockups
+
+Craigslist sample app
+
+ng new bogus-job
+    - components and services
+    - npm modules
+
+app.module.ts - bootstraps the app
+    - all of the injections
+    - brings in all you need
+    - supporting services
+
+ng g c componentnamehere
+    -   html
+    -   spec.ts
+    -   component.ts
+    -   component.css
+
+
+ng serve to serve the app
+    -- ng serve --open
+    -- get the default app on a port
+
+if you use ng create to add a service, it doesn't automatically add it to app.component.ts
+
+Route Guards - prevents someone from leaving the page without saving first
+    - also prevents getting to an invalid route (job id doesn't exist for instance)
+
+
+
+on a route in app.module.ts
+    path:, component:, canActivate: [activateservicehere]
+

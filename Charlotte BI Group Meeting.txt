@@ -1,0 +1,211 @@
+Charlotte BI Group Meeting 03/07/2016
+charbigroup.com
+@charbigroup
+
+SQL Saturday 3/11 Raleigh
+sqlsaturday.com/592/eventhome.aspx
+
+analyticsfrontier ritz
+
+TekSystems
+
+Sr level dev position SQL/BI
+Jr Level person as well
+
+Rafael - Ally Bank
+
+
+
+
+Working with JSON Formatted Data in SSMS 2016
+Cardinal
+---------------------------------------------
+Greg Lee - Cardinal Solutions
+
+Data.gov
+
+Select statement
+FOR JSON PATH, ROOT('Orders') - orders being top level node
+
+
+OPENJSON
+
+Select 
+Cross Apply OPENJSON(OrderItems) WITH
+(
+	CarrierTrackingNumber nvarchar(50) '$.CarrierTrackingNumber'
+
+	JSON_VALUE(OrderItems, '$(0)' blah blah)
+)
+
+Can index the JSON against a TEMP Table - limited to something like 1700 index keys or so
+
+Wide World Importers - in SQL 2016
+
+
+
+
+
+
+The Four Levels of Thinking as Geek Leader
+Tom Cooper
+------------------------------------------------
+What nobody tells you about achievement
+
+What if what you know is wrong?
+If what you believed were not true, would you want to know?
+
+Tom helps people communicate, delegate, manage conflict, and plan
+
+Learn how to influence the people around you
+
+Connect with the others
+
+Must study people - must learn people
+
+HOW WILL YOU ACT? - Apply, Change, Teach
+
+Have you ever worked for a stupid boss?
+Who they know, yes man, those that can't do - manage
+
+Early Years are all about personal performance
+
+
+TWO MYTHS:
+#1 -Geek Skills Rule
+ITS A TRAP
+Early years are TechSkills/small portion of politics/BS
+
+3 components to success:
+ Tech skills - small component
+ Influencing Skills - huge
+ Business Knowledge - medium
+
+
+ #2 - Hard work works
+ Talent + hard work does not work
+ They did not value the work that bill delivered
+
+ Work is not rewarded
+
+ Tom believed that Talent + hard work would pay off
+ he behaved that way, and was disappointed
+ Beliefs => Behaviors => Results
+
+ Your beliefs are important to your success - you must think differently
+
+ Design your own plan, or fall into someone else's - what they have planned for you is nothing
+
+ FOUR LEVELS OF THNKING AS A GEEK LEADER
+ Level1 - Individual Contributor "I produce great work"
+ What are you optimizing? What is success? does the map match the territory?
+
+
+ Go fast, then go alone. Go farther - then go together.
+
+ How do you know hwen you are succeeding?
+ 	feedback
+ 	stuff gets used
+ 	you've automated your job away
+
+ Would you follow you?
+ 	can people count on you?
+ 	Personal performance - only so much work can be done by a single person
+
+ 	Why do people buy our product?
+
+
+ LEVEL2: TEAM MEMBER
+ "I work with other and together we produce great work"
+ Level 2A = Dependence - I need you to help me
+
+ Zig Ziglar - you can have anything you want in life, if you help enough other people get what THEY want.
+
+ Early Project Management
+ help each person on the team get what they need
+
+ Level 2B - interdependence - How can I help you, from ME to WE
+
+ One is too small a number to achieve greatness - John Maxwell
+
+ Business Success = 87% people knowledge, 13% product knowledge
+ 
+ Whatever time you spend on tech knowledge - equal that with leadership knowledge
+
+
+ People do business wiht people they know like and trust -all things being equal - Bob Burg
+
+ Are you bringing light into the room?  Or are you bringing light into the room when you leave?
+
+ Level 2 producers are often promoted - work better with others
+ What happens when you take a high producer and you move them to leadership
+
+
+
+ LEVEL3 - Team Leader - I help others become influential followers who produce great work
+ How do you value someone for technical delivery when they aren't moved higher into leadership?
+
+ When you are promoted to manager you ask now what? 60% of new managers fail or underperform in the first 2 years - underproduction, do you deliver the value that the overall team can deliver?
+
+ Why Managers Stink?
+ The avg manager does not get any training until they have been on the job for 10 years
+
+ A better manager - paradigm #1
+ The paradigm shift from fitting people management in
+ to
+  people management is your job
+
+Leadership by permission - 1. Culture - focus on the WHO not the DO, 2. Team members wnat ot follow your lead and WANT to work together
+
+Move beyond personal performance - what does the team deliver
+
+Management is about getting the job done, through others
+ - We NOT ME
+
+ LEVEL 4 : TEAM BUILDER
+ I help develop great team leaders who develop others and together we produce great work
+
+ give good people the authority to make decisions about good work
+
+ Producer => Leader => Other Producers
+
+
+
+ Tom Cooper 
+ Tom@BrightHillGroup.com
+ @BrightHillGroup
+
+ People skills trump everything
+
+ HelpingGeeksCommunicate.com/join
+
+ Self Awareness as a manager?
+
+
+ Learn to delegate - 
+
+ manager/leader focuses on delivery - 3x, 5x, is the team performing at its best
+
+ Put more focus on the people side of things!  Build great relationships.
+
+ If you are above the organizational funding level then the values don't match.
+ Anger
+
+ What is the bosss being measured on, that you can help with.
+ maximize your influence
+
+recommendations?
+becoming a geek leader  - podcast! Listen and learn baby
+
+How do you get expers to want to work with you?
+
+What investments are you going to make into you?
+
+
+
+
+
+ Google - Project Oxygen
+
+
+

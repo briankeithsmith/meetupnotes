@@ -1,0 +1,74 @@
+Web Security - The Simple Stuff
+Sean Rhone
+
+Enterprise Dev Guild - 01/23/2018
+----------------------------------------
+2/17 Azure Hackathon
+2/17 IOT Hackathon
+Web Security 101 - the Simple things everyone can do
+
+@SeanRhone
+
+Simple things to do that don't require expert work
+
+TroyHunt.com
+
+ScottHelme.co.uk
+
+Assumptions:
+Write safer code
+Mitigate, not prevent
+Like an onion make them cry trying to get in
+
+
+Man in the Middle
+------------------
+HSTS - HTTP STRICT TRANSPORT Security
+- allows trust on first use
+- 301 redirect from http to https
+- prevents future non-https requests
+- 2nd trip gets a 307, it never left the browser, browser stops it
+- less than 4% of traffic uses this
+- everything has to be https
+- can only be set during a secure request
+- TOFU - trust on first use
+- Strict-Transport-Security: max-age: 31536000; includeSubdomains; preload (1 year)
+- httppreload.org
+
+
+CSRF - Cross Site Request Forgery
+Ways to Mitigate:
+ - disable CORS
+
+CONTENT SECURITY POLICY:
+------------------------
+Allows you to declare your content resources
+
+Header determines where your site can pull content from
+
+
+UPCERTS
+------------------------
+Burp Suite - interceptor
+
+
+Use Hashes for validating ID or other values
+
+AUTHENTICATION
+-------------------------
+make sure that the authentication process follows the same flow
+looking for same period of time to handle the request
+Length of response should be similar
+Response time should be similar
+
+
+Rainbow Table - value hashed under diff algorithms
+
+
+Elmah Logs
+
+
+inurl:elmah.axd
+
+
+

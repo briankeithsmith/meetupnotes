@@ -1,0 +1,39 @@
+.net on Linux with Enterprise Dev Guild
+
+Friday Dec 9th Tech Party at Packard Place 630pm
+
+Don Schenck  - Red Hat
+
+http://redhatloves.net
+RHEL RH Container Dev Kit
+
+RH, Docker, Kubernetes
+
+SignalR is coming
+VB is coming
+GTKPlus - open source forms library
+
+git clone https://github.com/donschenck/NetOnLinuxBook
+
+
+dotnet CLI
+
+vagrant - manages virtual machine on RH
+
+VM running - 
+vagrant ssh - lets you in the machine
+
+
+dotnet new
+project.json - imports : "dnxcore50"
+
+dotnet restore
+dotnet run
+
+dotnet new web
+
+swashbuckle and swagger
+
+developers.redhat.com/products/cdk/overview
+download container dev kit
+

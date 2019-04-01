@@ -1,0 +1,88 @@
+Richard Taylor - Angular 4/Dot Net Core
+---------------------------------------
+4/25/2017
+
+Atlanta Code Camp 9/16
+
+Creating a solid Web Application Architecture using Angular 2+ ASP.Net Core and WebAPI
+
+Every other Tuesday Modern Devs
+
+Xamarin Group - 3rd Thursday of the month
+
+Rules of Archicture:
+1. Scalability
+2. Extensibility - layered system - swap out , without concern
+3. Separation of Concerns
+4. Security
+5. Availability
+
+
+Conceptual Design
+Presentation		| Biz Logic			| Data Access 			| Data
+---------------------------------------------------------------------------
+UI/External services	Entities, Components, Business Workflows	| Entities/CRUD	| Database w replication
+
+Security, Exception Handling, Logging, Validation - CROSS CUTTING CONCERNS
+
+
+
+Tokens for Auth, Claims for authorization
+Token passed with every request
+
+IdentityServer
+
+
+
+
+Angular SPA - 4.01 - call ID4, gets token/claims, all future requests includes token
+ASP.net core Web API - biz logic and data access - all in one
+ASP.net core Identity Server
+SQL Server
+
+
+
+App Architecture
+Speaker.Module			| 		App.Module				|		Conference.Module
+Speaker.Routing			|		App.Routing				|		Conference.Routing
+Home					|		App.Component, Tokens	|		Conference
+List					|		HttpHelper				|		List
+Detail					|								|		Detail
+services				|								|		services
+
+app.UserIdentityServerAuthentication(new IdentityServerAuthenitcationOptions {
+	Authority="http://localhost:9440",
+	ScopeName="something"
+});
+
+[Authorize] attribute on the controller, checks the token
+
+
+[FromBody] attribute on PUT or POST
+
+
+@Component({
+	templateUrl: '../../app/speaker/speakerList.component.html'
+})
+
+export class SpeakerListComponent implements OnInit, OnDestroy {
+	private speakerServiceSub : any;
+
+	constructor(private speakerService: SpeakerService, private router Router);
+
+
+
+}
+
+
+@Injectable on a service makes it an injectable dependency
+
+
+
+
+github.com/rightincode/speakerregister
+docs.identityserver.io/en/dev/index.html
+
+}
+
+

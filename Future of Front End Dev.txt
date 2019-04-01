@@ -1,0 +1,109 @@
+Future of Front End Development
+
+Modern CSS
+    - Flexbox
+    - Grid
+    - Flexbox and Grid can work together
+    - Shape Outside
+    - Multi columns
+    - backdrop filter
+
+HTML5 APIS
+    - intersection observer
+    - resize observer
+    - mutation observer
+    - performance observer - PWA
+    - fetch APIS
+    - PUSH APIS
+    - payment handler and request APIS
+    - web bluetooth APIS
+
+THE Future
+
+
+Flexbox
+    - { display:flex}
+    -flex-direction: column
+    - flex-direction: row
+    - flex-wrap: nowrap //default
+    - flex-wrap: wrap
+    - flex-wrap: wrap-reverse
+    - justify-content: flex-start //default
+    - justify-content: flex-end flex-center space-between space-around 
+    - align-items: stretch //default 
+    - align-items: flex-start flex-end baseline 
+    - order:1 //makes it the first element
+    - flex-grow : 2 //takes up twice as much space
+    - flex-shrink: 2
+    - flex-basis : 1
+    - align-self : flex-end stretch 
+    - align-content : space-between flex-end space-around center
+    - alot of markup (somewhat)
+    - reorder may cause accessibility concerns
+
+
+    developers.google.com/web/fundamentals
+
+    use browser prefixes on older Safari/IE
+
+    Flex should be the default layout
+
+CSS Grid
+    - display: grid
+    - grid-template-columns: auto 1fr;
+    - grid-template-rows : 150px minmax(300px, max-content) 100px;
+    - grid-area : span 2;
+    - gutters
+    - gridbyexample.com
+    - 
+
+How to Grid and Flexbox work together:
+
+
+@supports(display: flex)
+{
+
+
+}
+
+
+CSS Clip-paths
+
+clip with image/svg
+
+CSS Multi-columns
+    - 
+
+CSS BAckdrop Filter:
+    - cssblender.com
+
+
+HTML5 APIS:
+    - scrollmagic library
+    - const observer=new IntersectionObserver(callback, options)
+
+
+    - performance observer - integrated into IDE's
+
+    - payment handlers and request APIS
+        - not really supported much - especially by FF
+
+    - PUSH APIS
+        - push message from server to client async can opt in our out - Chrome and FF
+
+Progressive Web Apps
+    - FullScreen API - removes the browser Chrome
+
+
+    justinholt.com/future.HTML
+
+
+    Wes boss - look him up
+
+    Inverted Triangle CSS
+        - from generic
+        - to specific
+
+        
+
+

@@ -1,0 +1,107 @@
+MongoDB Meetup:
+--------------------------
+08/14/2018
+
+What's new in MongoDB 4.0
+
+Intro to MongoDB:
+
+Expressive Query Language and Secondary Indexes
+
+$graphLookup - operator
+
+Neo4J always needs a backend DB
+
+
+
+High Availability and Uptime
+-------------------------------
+Replica sets of 2-50
+Replica set = "self healing" Shard
+High Availability
+Data durability, consistency
+Maintenance
+Disaster Recovery
+
+Primary - secondary (multiple)
+
+Elastic Scalability
+- sharding across
+- increase or decrease as you go
+- auto load balancing
+- 3 types of sharding
+    - hash
+    - range
+    - tag-aware
+
+Enterprise version has Ops Manager (on prem) and Cloud Manager (cloud)
+
+Query Routing
+- multiple query optimization models
+- sharding optons based on use case
+
+
+ATLAS
+
+What's new in 4.0 (end of June)
+
+Mutli Document ACID Transactions
+TLS 1.1+
+Global Clusters
+
+Intelligent Operational Data Platform
+- multi document ACID
+- Type conversions
+- aggregation pipeline builder
+- mongo Charts
+
+
+MongoDB Stitch or Mongo DB Mobile
+
+
+Multi Document Transactions
+----------------------------
+MySql vs Mongo - same 4 lines of code to do a Transaction
+mongodb.com/Transactions
+
+
+aggregation pipeline type conversions
+-------------------------------------
+{
+    $convert:
+    {
+        input:
+        to:
+        onError:
+        onNull:
+    }
+}
+
+MongoDB Compass
+
+
+MongoDB Charts
+
+40% faster migrations
+
+Stitch - serverless platform 
+
+Atlas - deploy across regions
+
+
+
+
+
+
+
+
+Shards
+--------------------------------
+
+Beta version of MongoDB Charts coming out just after 4.0
+
+Browser version
+
+
+
+

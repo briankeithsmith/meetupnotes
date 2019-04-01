@@ -1,0 +1,49 @@
+Shawn Wildermuth - .net core presentation
+02/27/2018
+https://wildermuth.com
+@shawnwildermuth
+
+http://shawn.me/my-courses
+
+
+.net core 2 from the ground up
+==============================
+Startup and Program.cs
+
+Nuget - Microsoft.AspNetCore.All 2.0.1
+
+services.AddM vc();
+
+app.AddMvc();
+
+
+app.UseDeveloperExceptionPage();
+
+
+Environment variable
+ASPNETCORE_ENIRONMENT
+
+
+appconfig.json
+
+IConfiguration - exposes configuration files
+
+@inject Microsoft.Configuration.IConfiguration configuration
+@config["key"]
+
+BuildWebHost
+
+.ConfigureAppConfiguration(CreateConfig)
+
+private static void CreateConfig(WebHostBuilderContext context)
+{
+    bldr.AddJsonFile(filename, true,true) //reload but doesn't stop service
+}
+
+Order of setup is important for the configuration
+
+
+
+
+
+

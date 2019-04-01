@@ -1,0 +1,59 @@
+FASTER SSIS
+Andy Leonard
+
+How can we accomplish this?
+Build Data integration FASTER
+make data integration more manageable
+
+
+SSIS ludicrous speed
+
+BLOBs in SQL 2016 can be up to 2GB
+
+DT_NTEXT (BLOB)
+BLOBTempStoragePath - the path you use for processing those
+e:\BLOBTemp - separate path from OS, and other processing
+
+
+AndyLeonard.Blog
+
+You can override the parameters in an SSIS package from the command line in most cases.
+
+BufferTempStoragePath - when you have to swap BufferTempStoragePath
+
+By using those 2 parameters you scan potentially speed SSIS by 40%
+
+SSIS as a service coming to Azure
+
+CDC - change detection
+
+CRC - cyclical redundancy check - hashing check - CHECKSUM
+
+System.Encryption - .net
+They moved portion of this into SQL known as HashBytes
+
+HashBytes('SHA1', convert(varchar,fieldname)+'|'|convert(varchar,nextfield))
+//usage - only picks up new and changed rows
+Where d.HashValue is null or
+HashBytes <> d.HashValue
+
+MERGE doesn't scale
+
+Could use this with CFP
+
+LinkServers are self-abuse
+
+You can use Postgres and MySQL in Azure now
+
+bimlscript.com
+
+andyleonard.blog
+dilmsuite.com
+biml.academy
+entdna.com
+andy.leonard@entdna.com
+sqlservercentral.com
+
+
+
+

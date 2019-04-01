@@ -1,0 +1,193 @@
+Sept 26, 2017
+Enterprise Dev Guild
+
+Microservices Primer for Monolithic Apps
+Lloyd Faulkner - Cardinal Solutions
+=========================================
+
+Raleigh .net conf local - October Oct 28 TriNUG
+
+Azure and Micrososervices
+
+What are ways to update the Monolithic Apps?
+
+
+Agenda:
+Microservices Overview
+Services and API Boundaries
+Designing for Distributed Data
+Managing Microservices
+Demo with Azure Service Fabric
+
+
+Users expect more features without downtime
+Developers have to figure out the Solutions
+Netflix, Slack, Trello, DropBox, Amazon, Flickr, Slack, Office365
+
+Monolithic vs Microservices
+Isolated maintenance with Microservices
+Allows more agility
+
+
+Evolution of Architectures
+Monolithic - Lasagna
+SOA - slices of pizza
+Microservices - bunch of personal pan pizzas
+
+GoF Patterns, SOLID, Hexagonal, and Testable
+
+
+
+Use Cases: - what app features are needed in your use cases
+SaaS products
+Availability Critical
+Variable I/O and Scale
+Variant Feature Changes
+
+
+Use Cases : Business features
+Remain Competetive
+Evolving Biz Model
+Acq Based Model
+
+
+When to start with a Monolith:
+Unknown Growth or Adoption
+Boundaries are NOT well defined
+No DevOps culture
+
+
+Determining Service Boundaries:
+Do one thing well
+Domain Driven Design
+Bounded Context gives team members a clear and shared understanding of what has to be consistent and what can develop independently. - Eric Evans
+
+
+Bounded Context Example:
+
+Subject         Student         Advisor
+Course          Class Sched     Faculty
+
+Where can the hard lines be drawn beteween the entities?
+
+Course Service
+Student Service
+Faculty Service
+
+
+
+Service Processes are separated by nouns and verbs
+Student Service
+Course Service
+
+VERBS - Batch Enrollment, Search Prospects
+
+Read the Netflix Blog
+ - Download a movie to the device Microservice
+
+
+What is an optional Monolithic Start:
+Bounded Contexts
+Variable Scaling
+Change Frequency
+Business Process
+
+
+
+Managing API's:
+API Gateway:
+AJAX -> APIGateway -> Service Discovery
+Service         Service         Service
+
+Must have service Discovery
+
+Follow Good Rest Principles - proper methods and status codes - know success and failure
+VERSIONING of the API!  Different ways, query param, URL, headers
+
+
+
+
+
+Managing Distributed Data:
+
+
+Materialized View
+
+
+Monolith Commands:
+
+Eventually Consistent Services
+
+CAP THEOREM
+PACELC THEOREM
+
+
+Event Sourcing
+
+
+Managing Microservices:
+REPOS -> BUILDS -> RELEASES
+
+75 Services that Cardinal is Managing
+
+UNIT TESTING:
+Internal Logic - in memory only
+Mock/Fake Dependencies
+    - lots of fake DI
+    - FAST - milliseconds
+
+Owned Dependencies:
+PRovisioning/Teardown
+Longer Duration
+
+Non-Owned Dependencies: - Service to Service calls
+Contracts
+Consumer vs Provider
+
+PackNet - github
+
+
+
+PLATFORM CHECKLIST:
+Frameworks
+Logging
+Monitoring
+Auto Scaling
+Service Discovery
+Instant Rollback
+Auto VERSIONING
+Failure Resistance
+
+
+
+EventStore.org
+Mulesoft
+Service Fabric Naming Service
+Consul
+Netflix Eureka
+
+Kafka and RabbitMQ for Event Messaging
+
+
+lfaulkner@cardinalsolutions.Com
+
+microserices.io
+
+azure/architecture
+martinfowler.com/articles/microservices.html
+
+
+How they did it:
+medium.com/netflix-techblog
+
+searchmicroservices.techtarget.com
+
+blogs.msdn.microsoft.com/bharry
+VSTS team
+
+
+
+
+Azure Service Fabric - made to support Micrososervices
+
+Mantl

@@ -1,0 +1,28 @@
+Charlotte Alt.net meetup 05/10
+------------------------------
+Lightning Talks
+
+
+Dan
+Beacons
+IOT - Lua language
+June 7 IOT Day 1-800pm
+May 17 @ LA - Docker by Marty 
+
+
+JavaScript Dates - Richard
+--------------------------
+moment.js
+utc vs nonutc
+jsdatetime.isValid() function
+then returning toDate();
+
+UTC for logging
+
+
+Paul Wheeler
+Martus Solutions
+Simple Deployment with VSTS
+
+LinqPad
+csi.exe VS2015

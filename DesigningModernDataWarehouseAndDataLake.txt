@@ -1,0 +1,117 @@
+Designing a modern data warehouse and Data Lake
+Melissa Coates
+10:00am session
+
+BlueGranite
+
+Strategies and architecture options for implementing a modern data warehousing environment
+
+sqlchick.com
+
+Modern Data Warehousing and adding a data lake to it
+
+1. Evolving to a modern data warehouse
+2. Data lake objectives, challenges, and implemenation options
+3. When
+
+Data is much more valuable one it is integrated from multiple systems
+
+denormalized
+
+Data Lake is the perfect landing zone for all of the data
+not as defined a schema
+
+Machine Learning, predictive analytics, self service reports and models
+
+What makes a Data Warehouse Modern:
+1. coexist with data lake
+2. Multiplatform architecture
+
+new approach is to complement Hadoop
+Augments existing DW
+Additional value to existing DW investment
+
+Grow a DW:
+Data modeling Strategies
+Partitioning
+Clustered columnstore index
+InMemory structures
+MPP - massivel parallel processing
+
+Amazon Redshift
+Azure SQL DW
+
+federated data - logically combined data
+
+Lambda architecture
+Organization Data ->BatchETL->DataWarehouse
+DataLake will contain raw data -> becomes curated data -> DW
+
+
+
+Hybrid architecture
+
+Cloud (Salesforce) -> MPP Data Warehouse -> datamart -> Reporting
+
+OnPrem
+    Sales systems       ->  DataMart
+    Inventory systems   ->  DataMart
+
+
+
+DataLake - repository for large quantities of varying data 
+
+IOT, LOGS, Human Generated Data, traditional operational data (sales inventory)
+
+DataLake is reduced up-front effort
+No defined schema - almost like dropping files in a directory
+
+large volume of multi-structured data in its native format
+
+Possibly use the DataLake as a staging area for your Data Warehouse
+    transform it into a dimensional model in the DW
+    treat the DataLake as an active archive
+
+PolyBase - look this up
+
+Acquire - Analyze - Deliver (to DW)
+
+
+Data Lake is more of a conceptual idea
+HDFS (Hadoop Distributed File Storage)
+NoSQL
+Object Stores (Amazon S3, or Azure Blob Storage)
+
+
+DW values:
+Governance
+Reliability
+Standardization
+Security
+
+
+Zones in a Data Lake - up to you to organize it
+RawData/Staging zone
+Transient/TempZone
+Analytics Sandbox
+Curated Data Zone
+
+Bad Data turns into the DATA SWAMP
+
+Organizing the Data Lake
+Plan the structure based on optimal data retrieval
+The organization pattern should be self documenting
+
+Sales
+    Salesforce  
+        CustomerContacts
+            2016
+                12
+                    2016_12_01
+                        CustCCT.txt
+
+
+
+Challenges of a Data Lake
+    Data Virtualization layer to query the multiple data sources and pull that data into play for the user
+    

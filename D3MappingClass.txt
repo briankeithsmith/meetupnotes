@@ -1,0 +1,458 @@
+D3 Geospatial Mapping
+-------------------------------
+1. Get Data
+2. Transform Data
+3. Display Data
+
+
+Mapping Concepts
+1. Choropleth
+2. Bubble Mapping
+    -   in the case of bubbles opacity is important so that you can see below larger bubbles
+
+
+Architecture
+------------
+Make File
+    - take a shape File
+    - convert it into topojson
+    - CSV data - combine with topojson
+    - end up with a merged json File
+        - use this in D3
+
+Environment Setup
+-----------------
+install node
+install topojson
+
+
+
+sw_vers -productVersion
+
+node -v
+
+create directory d3map
+    -    create package.json
+    -   npm install
+    -   git init
+    -   add .gitignore
+            .DS_Store
+            build
+            node_modules
+
+
+Build interactive map of customers by location
+
+
+D3.js fundamentals
+bl.ocks.org/mbostock
+
+
+GeoJSON and topojson
+Exported sales - combined with map data
+
+Working with GeoSpatial Data
+    -   Shapefiles
+    -   GDAL - library of tools - most common way of working with topojson
+    -   GeoJSON
+    -   topojson
+
+Shapefiles:
+    -   geospatial vector format used by many GIS systems
+    -   .shp - feature geometry
+    -   .shx
+    -   .dbf - attribute format
+
+GDAL
+Geospatial Data Abstraction library
+    -   raster and vector formats
+    -   open source
+    -   utility programs
+
+GeoJSON
+Discrete Geometry Objects
+Feature Collections
+Name/Value Pairs
+
+topojson
+    - extension of GeoJSON
+    - topology encoding
+    - shared line segments (arcs)
+    - eliminated redundancy
+    - 80% smaller files
+
+
+Finding Geospatial Data
+    -   census.gov
+            - geography - maps and data
+                - TIGER products
+
+    -   naturalearthdata.combine
+
+Downloaing a SHAPE File
+    - Counties files
+    - TIGER Products
+        - County files
+
+D3Map folder
+    - curl -o filename urltodataoncensus
+
+create Makefile
+---------------
+build/cb_2014_us_county_20m.zip:
+    mkdir -p $(dir $0)
+    curl -o $0 urltodataoncensus
+
+now run :
+make Makefile
+
+make build/file.zip
+
+
+Now Lets work with GeoJSON
+brew install GDAL
+GDAL.org
+
+
+How to check your work:
+
+
+Converting Shapefiles
+ogr2ogr -f format output input
+
+ogr2ogr -f GeoJSON counties.json build/file.shp
+
+
+Clipping a Shapefiles
+using a bounding box
+http://bit.lu/flicker-geo-api
+
+ogr2ogr
+    -f GeoJSON                                  //format
+    counties-clipped.json                       //output
+    build/file.shp                              //input
+    -clipsrc -124.4096 32.5343 -114.1308 43.095 //boundingbox
+
+- generally go look at output file
+
+How to Filter
+    - pick geometry through a Filter
+http://bit.ly/usa-fips
+
+ogr2ogr
+    -f GeoJSON
+    counties-filtered.json
+    build/file.shp
+    -where "STATEFP='06'"
+
+
+
+Now working with topojson
+    - topojson - command line client
+
+Convert GeoJSON to topojson
+
+topojson -o outputfile inputfile
+
+topojson
+    -o topocounties.json
+    counties.json
+
+topojson files are smaller
+
+With Projection
+topojson
+    -o topocountiesprojected.json
+    --projection 
+    counties.json
+
+
+Simplifying output
+------------------
+https://bost.ocks.org/mike/Simplify
+
+
+
+Makefile
+----------------
+all: us.json
+
+clean: rm -rf -- us.json build
+
+.PHONY: all clean
+
+build/output.shp: build/input.zip
+    unzip -od ($dir $@) $<
+    touch $@
+
+build/file.zip:
+    mkdir -p $(dir $a)
+    curl -o $@ urltodataoncensus
+
+build/counties.json: build/file.shp profitbycounty.CSV
+    node_modules/.bin/topojson \
+    - o $@ \
+    --id-property='STATE+COUNTY,id' \
+    --external-properties='profitbycounty.csv' \
+    --properties='profit=+profit, name=label, recno=id, orders=+orders' \
+    --projection='width = 960, height = 600, d3.geo.albersUsa() \
+        .scale(1280) \
+        .translate([width/2, height/2])' \
+    --simplify=.5 \
+    --counties=$<
+
+
+
+Now we build a states.json
+
+build/states.json: build/counties.json
+    node_modules/.bin/topojson-merge \
+    -o $@ \ #build/states/json
+    --in-object=counties \
+    --out-object=states \
+    --key='d.id.substring(0,2)' \
+
+
+Now build us.json
+build/us.json: build/states.json
+    node_modules/.bin/topojson-merge \
+    -o $@ \
+    --in-object=states \
+    --out-object=nation \
+    --nation=$<
+
+
+
+
+
+FINDING MORE Data
+    -   bit.ly/topojson-ref
+    -   bit.ly/census-maps
+    -   bit.ly/natural-earth
+
+
+
+
+DRAWING maps-
+-------------------------
+Map Template
+    - meta
+    - style
+    - body
+    - script for d3 an d3topo
+    - script for the D3 Mapping
+
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<style>
+    .land {
+        fill: #e5e5e5;
+        stroke: fff;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+
+    .border {
+        fill: none;
+        stroke: #fff;
+    }
+
+    .county {
+        stroke: #999;
+        stroke-width: .5;
+
+    }
+</style>
+<body>
+    <script src="http://d3js.org/d3.v3.min.js"/>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="colorbrewer.js"></script>
+    <script>
+        var width=960, height=600;
+
+        //our topojson has a projection already
+
+        var color=d3.scale.linear()
+            .domain([-100000,5000000])
+            .range(colorbrewer.Greens[7]);
+
+        var rateById=d3.map();
+
+        var path=d3.geo.path().projection(null);
+
+        var svg=d3.select('body').append('svg')
+            .attr('width',width)
+            .attr('height', height);
+
+        //read in us.json
+        d3.json('us.json', function(e, us){
+            if (e) return console.error(error);
+
+            svg.append('path')
+                .datum(topojson.feature(us, us.objects.nation))
+                .attr('class','land')
+                .attr('d',path);
+
+            svg.append('path')
+                .datum(topojson.mes(us, us.objects.states, function(a,b){return a!==b;})) //or .nation
+                .attr('class','border state')
+                .attr('d',path);
+
+            svg.append('path')
+                .datum(topojson,mesh(us,us.objects.counties, function(a,b){return a!==b;}))
+                .attr('class', 'border counties')
+                .attr('d', path);
+
+            svg.append('g')
+                .attr('class', 'counties')
+                .selectAll('path')
+                .data(topojson.features(us,us.objects.counties).features)
+                .enter().append('path')
+                .attr('class', 'county')
+                .addtr('d', path)
+        });
+    </script>
+</body>
+
+
+
+
+
+Building Bubble maps - bubbles.html
+-------------------------------------
+--use light.css
+svg.append('g')
+    .attr('class','bubble')
+    .selectAll('circle')
+    .data(topojson.feature(us,us.objects.counties).features)
+    .enter().append('circle')
+    .attr('transform', function(d) {
+        return "translate("+path.centroid(d)+")"; //center of county
+    })
+    .attr('r', function(d) {
+        return Math.sqrt(parseFloat(d.properties.profit)*.00005); //radius size
+    });
+
+
+
+//sorting bubbles - making sure that the largers are on the bottom
+svg.append('g')
+    .attr('class','bubble')
+    .selectAll('circle')
+        .data(topojson.features(us, us.objects.counties).features)
+        .sort(function(a,b){
+            return b.properties.profit-a.properties.profit;
+        }));
+
+//properly sizing the bubbles
+var radius=d3.scale.sqrt()
+    .domain([0,1e6]) //1 with 6 0s (1M)
+    .range([0,15])
+
+.attr('r',function(d) {return radius(d.properties.profit);})
+
+
+
+//adding tooltips
+.append('title')
+    .text(function(d){
+        return d.proeprties.name + '\nProfit '+d.properties.profit;
+    });
+
+
+//format the tooltips
+
+function formatSales(val)
+{
+    var prefix=d3.formatPrefix(val), format=d3.format('.1f');
+    return format(prefix.scale(val))+prefix.symbol;
+}
+
+.append('title')
+    .text(function(d){
+        return d.properties.name + '\nProfit ' + formatSales(d.properties.profit);
+    });
+
+
+
+//Building the final map
+//Adding a Legend
+
+var legend=svg.append('g')
+    .attr('class', 'legend')
+    .attr('transform', 'translate('+(width-50)+','+(height-20)+')')
+    .selectAll('g')
+    .data([1e6, 5e6, 1e7])
+    .enter().append('g');
+
+legend.append('circle')
+    .attr('cy', function(d){return -radius(d);})
+    .attr('r',radius);
+
+legend.append('text')
+    .attr('y', function(d){return -2*radius(d);})
+    .attr('dy','1.3em')
+    .text(d3.format('.1s'));
+
+
+
+//ADD STYLING
+dark.css
+
+body { background-color: #181818;}
+.land { fill:#3A3A3A;}
+.bubble { fill:#F15B2A;
+    fill-opacity : .5;
+    stroke
+}
+
+
+//Reading Data With QUEUE
+-------------------------
+d3js.org/queue.v1.min.js
+queue()
+    .defer(d3.json, "us.json")
+    .defer(d3.csv, "category-sales.csv")
+    .await(ready);
+
+function ready(e, us,catSales){
+    if (e) throw e;
+
+    // put all current D3 code here
+
+}
+
+
+BUILDING THE HOVERCARD
+----------------------
+var barTooltip = d3.select('body').append('div')
+    .attr('class','tooltip')
+    .style('opacity,0)
+    .style('width', 600);
+
+.on('mouseover', function(d){
+    var circleId=d.id;
+    barTooltip.transition()
+        .duration(500)
+        .style('opacity', .7);
+    var tip='<h3>'+d.properties.name+'</h3>';
+    var tip=tip+'<strong>Orders:</strong>+formatNum(d.properties.orders)+'<br/>';
+    var tip=tip+'<strong>Profit</strong>'+formatSales(d.properties.profit)+'</br/>';
+    var tip=tip+'<h4>Category Sales</h4>';
+
+    var chart=barTooltip.append('svg')
+        .attr('width', width+margin.left+margin.right)
+        .attr('height', height+margin.top+margin.bottom)
+        .append('g')
+        .attr('transform','translate('+margin.left+','+margin.top+')');
+
+    x.domain(catSales.map(function(d){return d.Category;}));
+    y.domain=
+})
+
+D3.js fundamentals course
+    Code School
+
+bl.ocks.org/mbostock
+bit.ly/bs-d3-tips
+

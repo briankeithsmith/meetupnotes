@@ -1,0 +1,26 @@
+Experimentation By Design
+MyJive
+1/9/2017
+-----------------------------------------
+Nathan Curtis - 1/27 meeting - check Meetup Style Guides at the enterprise level
+$300
+
+WorldIA day - World Information Architecture Day
+either at packard place or uncc downtown
+
+medium.com/elegant-tools/facebook-a- four business design principles for creating elegant tools
+
+ENGAGEMENT STUDIO
+
+1. Discovering Opportunity
+2. Asking better questions
+3. Design principles and product focus
+4. clear concept validation
+
+
+1. Discovering Opportunity
+	a. Scaled B2B business apps shouldn't get completely redesigned very often
+		1. Is is visually unscalable?
+		2. Usability Issues
+		3. You want an ROI Multiplying Use-Case
+		

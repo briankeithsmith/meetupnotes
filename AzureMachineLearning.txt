@@ -1,0 +1,48 @@
+Azure Machine Learning at Microsoft Campus
+07/05/2017
+
+Brad Llewellyn
+
+Breaking-bi.bogspot.com
+
+Valorem - employer
+
+Why Azure Machine Learning
+==========================
+
+Common Data Science Struggles
+ - data not in right format
+ - no access to data
+ - must know statistics (perceived)
+
+ - Steep learning curve/code heavy
+ - testing and optimization can be time consuming
+ - requires 3rd party tools and heaving coding skills to productionalize
+
+
+ What is Azure Machine Learning
+  - cloud
+  - well documented algorithms
+  - code free GUI
+  - early integrates into Enterprise Data Structure
+
+
+FREE version
+    - predictive web services
+    - R & Python
+    - you can import your own packages
+
+studio.azureml.net
+    - Experiments  - where you do your work
+    - tons of samples from Microsoft
+    - gallery.cortanaintelligence.com/Experiments
+    - uses SQLLite
+    - clean mising data functionality is built in
+        - custom substitution
+        - mean/median/mode
+    - in the Machine Learning category
+        - Initialize Model
+            - Anomoly Detection
+            - Classification - classify our values - in our case 2-class
+            - Clustering
+            - Regression
