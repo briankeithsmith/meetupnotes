@@ -1,0 +1,194 @@
+AWS Day Notes 4/2/2019
+--------------------------------
+Wes Gruver - Senior Technical Trainer - AWS
+
+aws.amazon.com/new
+
+CORE SERVICES:
+---------------------------------
+Location - 20 regions
+Availability Zone - collection of data centers
+Edge Locations  - for caching of content
+
+NETWORK:
+---------------------------------
+VPC - first thing
+Security Groups  = FireWall in a sense
+
+LAUNCHING INFRASTRUCTURE: 
+----------------------------------
+Elasticity, COntrol, Flexibility, Integrated, Reliable, Secure, Inexpensive
+T2-Micro = 2 core, 2GB RAM
+
+Guessing on capacity is a CRIME - don't guess just grow
+
+STORAGE 
+EBS - elastic block storage - disk drive basically
+    - persistent
+    - replicate it
+    - diff drive types
+    - scale up or down in mins
+    - pay for what is provisioned
+    - snapshots
+
+CONTAINERS
+-----------------------------------
+Elastic Container Service
+Elastic Container Service for Kubernetes
+Fargate - Run containers without managing servers or clusters
+VMWare Cloud on AWS - VMWARE in the cloud
+
+DEMO:
+------------------------------------
+Launch a Web Server
+
+
+
+STORING DATA
+-------------------------------------
+EBS - hard drive
+S3 - Simple Storage Service
+Glacier - long term slow storage - slow to retrieve (3-5hrs)
+EFS - Sharable Network-attached file storage - like EBS except - shared
+Storage Gateway - extension of on prem storage
+
+
+S3 - Data Stored in Buckets
+    - unlimited storage (budget) - up to 5TB
+    - granular access to bucket and objects
+    - 5 buckets per region per account
+
+    Common Uses
+    - backup and storage
+    - app hosting
+    - media hosting
+    - sw delivery
+
+
+DEMO  - Serverless Static Web Server:
+---------------------------------------
+Must create a bucket that is globally unique
+Tagging - metadata around the bucket
+
+
+MORE SERVICES:
+----------------------------------------
+Auto Scaling and Load Balancing
+ELB + Auto Scaling Group
+ELB - automatically distribute traffic across multiple targets
+Application Load Balancers - within Application
+Dynamic Scaling
+    - Min/Max/Desired - limit the Max
+CloudWatch:
+    - Monitors resources
+
+Route53:
+    - DNS as a Service
+    - Register domains
+    - Route to resources
+    - Perform health checks
+
+
+DATABASE SERVICES:
+-----------------------------------------
+RDS - relational
+Aurora - relational - mySQL/PostreSQL
+DynamoDB - NoSQL
+RedShift - Data Warehouse
+ElastiCache - In Memory (Redis)
+Neptune - GraphDB - Nodes and Vertices - knowledge bases and CC Protection
+Database Migration Services  - Migrate Dbs to AWS
+
+
+LAMBDA:
+------------------------------------------
+
+
+CLOUDFRONT:
+------------------------------------------
+CDN - Edge Locations
+
+
+AUTOMATED DEPLOYMENT:
+------------------------------------------
+LightSail
+Beanstalk
+CloudFormation
+    - Model and provision cloud INFRASTRUCTURE resources
+    - repeatable and Reliable and secure
+    - template can build INFRASTRUCTURE, or produce another template
+    - entire data center can be stored in a JSON or YAML doc
+    - very powerful tool
+
+CLOUDFORMATION DEMO:
+------------------------------------------
+Management and Governance Section
+aws.amazon.com/quickstart/
+
+
+SECURITY:
+------------------------------------------
+Compliance Products:
+
+Shared Responsibility Model:
+    - Unmanaged Services - EC2, EBS
+    - Managed Services - RDS, S3, DynamoDB
+
+IAM - Identity and Accesss Management:
+Who can do what , when , where
+Manage access to AWS Resources, not access to applications
+AWS does not manage application level Security
+
+Recommendation:
+------------------------------------------
+1. Delete root user access keys
+2. Create an IAM user
+3. Grant that user admin access
+4. Use IAM Creds to work with AWS
+
+User Groups and Roles
+ROLE:
+    - users/applications/services assume IAM Roles
+    - uses IAM policy for permissions
+
+SECURITY COMPLIANCE:
+------------------------------------------
+
+
+PRICING AND SUPPORT:
+------------------------------------------
+    - Pay as you Go
+    - Save when you reserve - save up to 75% NURI (no upfront pmt), PURI (partial upfront), AURI (all up front)
+    - Pay less my using MORE
+
+
+servicename/pricing - for pricing details
+EC2/pricing
+S3/pricing
+
+EC2:
+    - OnDemand
+    - Reserved
+    - Spot
+    - Dedicated Hosts
+
+Services for NO CHARGE:
+VPC
+Beanstalk
+others
+
+
+Simple Monthly Calculator
+
+Trusted Advisor
+
+
+TRAINING AND CERTS:
+------------------------------------------
+aws.amazon.com/TRAINING
+aws.amazon.com/certification
+
+
+
+
+
